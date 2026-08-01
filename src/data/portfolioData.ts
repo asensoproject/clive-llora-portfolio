@@ -33,11 +33,62 @@ export const PORTFOLIO_DATA = {
   ],
   status: "Available for High-Impact Roles & Advisory",
   email: "hello@clivellora.com",
+  phone: "+63 995 530 0226",
+  location: "Bataan, Philippines",
+  resumePdfUrl: "/Clive_Llora_Resume.pdf",
   socials: {
     github: "https://github.com/clivellora",
     linkedin: "https://linkedin.com/in/clivellora",
     twitter: "https://x.com/clivellora",
   },
+  workHistory: [
+    {
+      role: "System Architect",
+      company: "Curzzo Holdings LLC",
+      duration: "Jan 2023 – Present",
+      location: "Remote",
+      badge: "Current Role",
+      highlights: [
+        "Architected and deployed the entire digital ecosystem for Curzzo.com, a scalable community and recurring subscription platform, utilizing a modern AI-assisted development stack (Claude, Google Cloud, AWS, React/Next.js).",
+        "Accelerated the development lifecycle by engineering a rapid CI/CD pipeline via GitHub, significantly reducing deployment times for iterative features.",
+        "Designed a secure, high-availability database schema and authentication system using Supabase (PostgreSQL) to handle real-time data synchronization.",
+        "Integrated external revenue APIs, bridging technical architecture with core business operations and subscription management."
+      ]
+    },
+    {
+      role: "Facebook Ads Specialist / Funnel Strategist",
+      company: "Namizentials",
+      duration: "Nov 2019 – Jan 2023",
+      location: "Remote",
+      badge: "Growth Engineering",
+      highlights: [
+        "Architected and optimized full digital marketing funnels (ads, landing pages, autoresponders) to maximize Return on Ad Spend (ROAS).",
+        "Managed a high-performing marketing budget exceeding $1,000,000 while leading a remote team of 5+ employees focused on growth engineering.",
+        "Implemented automated lead generation and conversion systems using advanced data-driven strategies to drive measurable business scaling."
+      ]
+    },
+    {
+      role: "Senior Oracle Database Administrator",
+      company: "TELUS International",
+      duration: "Dec 2012 – Dec 2018",
+      location: "Enterprise Infrastructure",
+      badge: "Ex-TELUS",
+      highlights: [
+        "Optimized large-scale database systems, reducing system downtime by 30% through efficient troubleshooting and architectural refinement.",
+        "Collaborated with cross-functional technical teams to design, secure, and implement user-centric data features and system integrations."
+      ]
+    },
+    {
+      role: "Oracle Database Administrator",
+      company: "Accenture",
+      duration: "Jul 2012 – Sep 2014",
+      location: "Enterprise Systems",
+      badge: "Ex-Accenture",
+      highlights: [
+        "Managed and maintained complex enterprise database environments utilizing SQL, ensuring high availability, peak system optimization, and robust data integrity."
+      ]
+    }
+  ],
   stats: [
     { label: "AI Ecosystems Shipped", value: "10+" },
     { label: "Engineering Velocity", value: "10x Fast" },

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Copy, Check, ArrowUpRight } from "lucide-react";
+import { Mail, Copy, Check, ArrowUpRight, Download } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 const GithubIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -63,6 +63,15 @@ export const ContactSection = () => {
               >
                 <Mail className="w-4 h-4" />
                 <span>Send Direct Email</span>
+              </a>
+
+              <a
+                href={PORTFOLIO_DATA.resumePdfUrl}
+                download="Clive_Llora_Resume.pdf"
+                className="px-6 py-3.5 rounded-xl glass-panel text-cyan-400 hover:text-white font-semibold text-xs sm:text-sm transition-all flex items-center gap-2 hover:-translate-y-0.5 border border-cyan-500/30"
+              >
+                <Download className="w-4 h-4 text-cyan-400" />
+                <span>Download Resume (PDF)</span>
               </a>
 
               <button

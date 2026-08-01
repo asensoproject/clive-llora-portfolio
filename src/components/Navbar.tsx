@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
+import { ArrowUpRight, Download } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export const Navbar = () => {
@@ -20,6 +19,7 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Projects", href: "#projects" },
     { name: "Tech Stack", href: "#skills" },
+    { name: "Experience", href: "#resume" },
     { name: "Architecture", href: "#architecture" },
     { name: "Contact", href: "#contact" },
   ];
@@ -74,8 +74,18 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <div className="flex items-center gap-3">
+          <a
+            href={PORTFOLIO_DATA.resumePdfUrl}
+            download="Clive_Llora_Resume.pdf"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white glass-panel hover:border-cyan-500/40 rounded-lg transition-all"
+            title="Download Resume PDF"
+          >
+            <Download className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Resume</span>
+          </a>
+
           <a
             href="#contact"
             className="group relative inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white transition-all duration-300 rounded-lg overflow-hidden bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:-translate-y-0.5"

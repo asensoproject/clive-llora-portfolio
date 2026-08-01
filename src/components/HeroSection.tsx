@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, Copy, Check, Terminal, ShieldCheck, GraduationCap, Building2 } from "lucide-react";
+import { Sparkles, ArrowRight, Copy, Check, Terminal, ShieldCheck, GraduationCap, Building2, Download } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export const HeroSection = () => {
@@ -101,6 +101,15 @@ export const HeroSection = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
+              <a
+                href={PORTFOLIO_DATA.resumePdfUrl}
+                download="Clive_Llora_Resume.pdf"
+                className="px-6 py-3.5 rounded-xl glass-panel text-cyan-400 font-semibold text-xs sm:text-sm hover:text-white hover:border-cyan-500/40 transition-all flex items-center gap-2 hover:-translate-y-0.5"
+              >
+                <Download className="w-4 h-4 text-cyan-400" />
+                <span>Download Resume</span>
+              </a>
+
               <button
                 onClick={copyEmail}
                 className="px-6 py-3.5 rounded-xl glass-panel text-slate-300 font-medium text-xs sm:text-sm hover:text-white hover:border-slate-600 transition-all flex items-center gap-2 hover:-translate-y-0.5"
@@ -108,7 +117,7 @@ export const HeroSection = () => {
                 {copied ? (
                   <>
                     <Check className="w-4 h-4 text-emerald-400" />
-                    <span className="text-emerald-400">Email Copied to Clipboard!</span>
+                    <span className="text-emerald-400">Email Copied!</span>
                   </>
                 ) : (
                   <>
