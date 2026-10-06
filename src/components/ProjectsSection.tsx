@@ -30,7 +30,7 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {PORTFOLIO_DATA.projects.map((project, index) => (
             <motion.div
               key={project.id}

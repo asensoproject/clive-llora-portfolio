@@ -189,6 +189,31 @@ export const PORTFOLIO_DATA = {
         "/projects/alphabusinessgroup/ABG-4.jpg",
       ],
     },
+    {
+      id: "deyliherbs",
+      title: "Deyliherbs",
+      subtitle: "High-Functioning E-Commerce Platform",
+      description:
+        "A high-functioning e-commerce platform built for scale, seamless checkout experience, automated order workflows, and conversion optimization.",
+      longDescription:
+        "Deyliherbs is a high-performance e-commerce platform engineered for scale, featuring high-speed product catalog rendering, secure checkout integration, automated inventory tracking, and seamless customer order management.",
+      techStack: ["Next.js", "Tailwind CSS", "Supabase", "Vercel", "SQL", "E-Commerce Architecture"],
+      metrics: ["High Conversion Rate", "Sub-Second Load", "Automated Checkout"],
+      features: [
+        "High-speed product catalog with category filtering",
+        "Conversion-optimized checkout flow and order pipeline",
+        "Automated inventory management & customer notification engine",
+        "Responsive dark-mode aesthetic with fluid micro-interactions",
+      ],
+      architectureHighlights: [
+        "Server-side rendered catalog for maximum SEO performance",
+        "Secure database schema for order processing and inventory sync",
+        "Edge-cached asset delivery for lightning-fast mobile shopping",
+      ],
+      gradient: "from-green-500/20 via-emerald-500/10 to-teal-500/20",
+      badge: "E-Commerce Platform",
+      link: "https://www.deyliherbs.com",
+    },
   ] as Project[],
   skillCategories: [
     {
