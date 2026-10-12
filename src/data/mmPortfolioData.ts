@@ -168,6 +168,23 @@ export const MM_PORTFOLIO_DATA = {
     },
   ],
 
+  // Video ads Clive concepted, scripted and directed. Videos play from Google Drive;
+  // thumbnails are copied into /public/creatives.
+  creatives: [
+    { slug: "tfm-angle-2", driveId: "1aiJhdBtLCQQd9zx3Wn-PJTsj59QRvXlR", campaign: "The Faceless Marketer", format: "AI spokesperson", angle: "Angle test #2" },
+    { slug: "tfm-angle-3", driveId: "1aqk_B58P_4L6w4fFuzmnf3Gx8T6H93GG", campaign: "The Faceless Marketer", format: "AI spokesperson", angle: "Angle test #3" },
+    { slug: "tfm-avatar-reveal", driveId: "1ah1pc13B1_4CeKrZKfLJlAFxsjPC_aTO", campaign: "The Faceless Marketer", format: "AI avatar", angle: "Pattern interrupt: “Hindi ako totoo”" },
+    { slug: "tfm-proof", driveId: "1CcS4SkiFl88WwUmYTV42mmQZ8LDTat5O", campaign: "The Faceless Marketer", format: "Proof overlay", angle: "Student proof from the community chat" },
+    { slug: "tfm-confession", driveId: "1kdZLI6icdRcN5Oy0jfQNC6MUTAihavxS", campaign: "The Faceless Marketer", format: "Selfie-style", angle: "Quick confession" },
+    { slug: "tfm-walkthrough", driveId: "1bqXluYGgPDJoqAYUo8vgVAav-vpCbprU", campaign: "The Faceless Marketer", format: "Walkthrough", angle: "Show-how demo" },
+    { slug: "tfm-testimonial-patrick", driveId: "1O6RQ7Jnce9lXNxKoh3PQCMuvnkYoLIEX", campaign: "The Faceless Marketer", format: "Student testimonial", angle: "Social proof" },
+    { slug: "tfm-upsell-raymund", driveId: "1NmDb9SNb9wCz1nLRF_wnNWQ--JH4lCfz", campaign: "TFM Blueprint", format: "Zoom testimonial", angle: "Upsell proof" },
+    { slug: "ai-influencer-francesca-1", driveId: "1OLHlxXAuwUP56YDtGJ3z2v0Zq05lH4an", campaign: "AI Influencer", format: "AI UGC", angle: "Angle 1" },
+    { slug: "ai-influencer-francesca-3", driveId: "1bcEDq_fAC9mI53PzaJA2eSKrDElT_Azf", campaign: "AI Influencer", format: "AI UGC", angle: "Angle 3" },
+    { slug: "ai-ugc-live-selling", driveId: "1z9eSqtH_52QxTV78o-Oc8RaTSQSI_jkQ", campaign: "AI Influencer", format: "AI live-selling", angle: "Shopee Live demo" },
+    { slug: "coachcircle-hook-2", driveId: "1Ke95PIWmBgDgw5XMdH3sEZNtyQgX0fUp", campaign: "CoachCircle", format: "Event footage", angle: "POV authority hook" },
+  ],
+
   // Headlines and hooks from Clive's live pages, each labeled with the angle it uses.
   hooks: [
     { angle: "Price anchor", copy: "Naturally nutritious, easy to mix, and only ₱10 per glass.", source: "AICARE Barley" },

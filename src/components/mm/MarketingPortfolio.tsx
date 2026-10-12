@@ -59,6 +59,7 @@ const Navbar = () => {
   const links = [
     { name: "Fit", href: "#fit" },
     { name: "Funnels", href: "#work" },
+    { name: "Creatives", href: "#creatives" },
     { name: "Hooks", href: "#hooks" },
     { name: "Process", href: "#process" },
     { name: "Experience", href: "#experience" },
@@ -285,6 +286,57 @@ const Work = () => (
   </section>
 );
 
+const CreativeCard = ({ c }: { c: (typeof D.creatives)[number] }) => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <motion.div {...fadeUp} className="glass-panel rounded-2xl overflow-hidden flex flex-col">
+      <div className="relative aspect-[9/16] bg-black">
+        {playing ? (
+          <iframe
+            src={`https://drive.google.com/file/d/${c.driveId}/preview`}
+            title={`${c.campaign}: ${c.angle}`}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        ) : (
+          <button onClick={() => setPlaying(true)} className="group absolute inset-0 w-full h-full" aria-label={`Play ${c.campaign}: ${c.angle}`}>
+            <img src={`/creatives/${c.slug}.jpg`} alt="" loading="lazy" className="w-full h-full object-cover" />
+            <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="w-14 h-14 rounded-full bg-white/90 text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                <CirclePlay className="w-7 h-7" />
+              </span>
+            </span>
+          </button>
+        )}
+      </div>
+      <div className="p-4">
+        <p className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-semibold">{c.format}</p>
+        <p className="mt-1 text-sm font-bold text-white leading-snug">{c.angle}</p>
+        <p className="text-xs text-slate-500">{c.campaign}</p>
+      </div>
+    </motion.div>
+  );
+};
+
+const Creatives = () => (
+  <section id="creatives" className="relative py-20 scroll-mt-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <SectionHeading
+        eyebrow="Ad creatives I directed"
+        title="Concepted, scripted and directed through the team"
+        intro="Hook-driven video ads for Meta and TikTok. I owned the concept, angle and script, then briefed the editors and AI production team through to the finished ad. Tap any ad to play it."
+      />
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+        {D.creatives.map((c) => (
+          <CreativeCard key={c.slug} c={c} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const Hooks = () => (
   <section id="hooks" className="relative py-20 scroll-mt-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -473,6 +525,7 @@ export const MarketingPortfolio = () => (
     <Hero />
     <Fit />
     <Work />
+    <Creatives />
     <Hooks />
     <Process />
     <Experience />
