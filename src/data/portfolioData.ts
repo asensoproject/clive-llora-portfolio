@@ -213,8 +213,8 @@ export const PORTFOLIO_DATA = {
       gradient: "from-green-500/20 via-emerald-500/10 to-teal-500/20",
       badge: "E-Commerce Platform",
       link: "https://www.deyliherbs.com",
-      image: "/projects/deyliherbs/DEYLIHERBS-1.jpg",
-      images: ["/projects/deyliherbs/DEYLIHERBS-1.jpg"],
+      image: "/projects/deyliherbs/DEYLIHERBS-HOME.jpg",
+      images: ["/projects/deyliherbs/DEYLIHERBS-HOME.jpg"],
     },
   ] as Project[],
   skillCategories: [

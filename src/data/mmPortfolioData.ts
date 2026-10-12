@@ -95,11 +95,11 @@ export const MM_PORTFOLIO_DATA = {
       image: null as string | null,
     },
     {
-      title: "Sendnxt",
-      kind: "Lead nurturing & broadcast automation",
-      body: "One workspace to connect Facebook pages, automate chat replies, and send broadcasts and multi-step sequences to nurture leads.",
-      link: "https://sendnxt.com/",
-      image: "/projects/sendnxt/SENDNXT-1.jpg",
+      title: "Radiantz Manufacturing Incorporated",
+      kind: "B2B lead generation site",
+      body: "Website for a GMP & ISO-certified health and beauty manufacturer, built to turn aspiring founders, resellers and businesses into private-label clients through a six-step brand-launch journey and consultation CTAs.",
+      link: "https://radiantzmanufacturing.com/",
+      image: "/projects/radiantz/RADIANTZ-1.jpg",
     },
     {
       title: "Curzzo",
@@ -110,17 +110,10 @@ export const MM_PORTFOLIO_DATA = {
     },
     {
       title: "Deyliherbs",
-      kind: "E-commerce & conversion",
-      body: "E-commerce storefront designed around a conversion-optimized checkout and automated customer notifications.",
+      kind: "Direct-response sales page",
+      body: "Conversion-focused sales page for a Filipino herbal tea brand, built on benefit-led copy, trust signals, a 45-day money-back guarantee, and cash-on-delivery ordering.",
       link: "https://www.deyliherbs.com",
-      image: "/projects/deyliherbs/DEYLIHERBS-1.jpg",
-    },
-    {
-      title: "Alpha Business Group",
-      kind: "B2B community & partnerships",
-      body: "Member network where business owners connect, offer exclusive perks and form cross-business partnerships.",
-      link: "https://alphabusinessgroup.net/",
-      image: "/projects/alphabusinessgroup/ABG-1.jpg",
+      image: "/projects/deyliherbs/DEYLIHERBS-HOME.jpg",
     },
   ],
 
