@@ -106,7 +106,7 @@ export const MM_PORTFOLIO_DATA = {
       title: "Curzzo",
       kind: "Community marketplace · Platform growth",
       body: "Marketplace where creators launch and sell paid communities and courses from day one, without building a website or funnel. It now lists 37 communities, the top ones with 1.2k–1.7k paying members, plus a built-in referral program for word-of-mouth growth.",
-      role: "Founder, positioning, go-to-market",
+      role: "Systems Architect: platform, funnels & go-to-market",
       link: "https://curzzo.com/communities",
       image: "/projects/curzzo/CURZZO-HOME.jpg",
     },
