@@ -24,7 +24,7 @@ export const MM_PORTFOLIO_DATA = {
   stats: [
     { value: "US$700K", label: "Sales reached at Radiantz Skin after I rebuilt the offer" },
     { value: "2019", label: "Writing & running cold paid-social funnels since" },
-    { value: "₱1M+", label: "Ad & marketing budget managed" },
+    { value: "US$1M+", label: "Ad spend managed over the years" },
     { value: "20+", label: "Creative, marketing & sales team members led" },
   ],
 
@@ -72,7 +72,7 @@ export const MM_PORTFOLIO_DATA = {
         "Build cold funnels end to end for digital courses, online communities and live webinars: ad, opt-in or registration page, and autoresponder follow-up, optimized for ROAS.",
         "Write the ad copy, opt-in pages and video ad scripts, and brief the team that produces the creative.",
         "Lead creative, marketing and sales teams: a remote team of 20+ across creative production, campaigns, business development and project management.",
-        "Manage a marketing budget of over a million pesos.",
+        "Managed over US$1M in ad spend over the years.",
       ],
     },
     {
