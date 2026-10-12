@@ -76,7 +76,7 @@ export const MM_PORTFOLIO_DATA = {
       ],
     },
     {
-      role: "Offer Strategist (Project Role)",
+      role: "Marketing Strategist",
       company: "Radiantz Skin Manufacturing Incorporated",
       duration: "Project",
       current: false,
