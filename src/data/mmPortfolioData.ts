@@ -103,14 +103,6 @@ export const MM_PORTFOLIO_DATA = {
   // Live funnels, newest first. Screenshots live in /public/projects.
   work: [
     {
-      title: "Curzzo Live Workshop",
-      kind: "Webinar funnel · Founder-led",
-      body: "Paid live Zoom workshop (₱299 seat) for a founder-led community offer. Proof-first hook built around real sales records, plus a countdown and a seat-reservation CTA.",
-      role: "Offer, hook, page copy, build",
-      link: "https://curzzo-webinar-test.vercel.app/",
-      image: "/projects/webinar/WEBINAR-1.jpg",
-    },
-    {
       title: "AiConnect",
       kind: "VSL funnel · Taglish",
       body: "Video sales letter funnel for a zero-inventory e-commerce business opportunity, written in Taglish for Filipino first-time entrepreneurs, with a watch-to-unlock bonus to keep people watching to the end.",
@@ -154,13 +146,10 @@ export const MM_PORTFOLIO_DATA = {
 
   // Headlines and hooks from Clive's live pages, each labeled with the angle it uses.
   hooks: [
-    { angle: "Proof-led", copy: "Monetize your expertise starting day 1, the same way I sold ₱100K with zero ad spend.", source: "Curzzo Live Workshop" },
     { angle: "Pattern interrupt", copy: "Business owner ka ba, o glorified packer?", source: "AiConnect VSL" },
     { angle: "Qualifying question", copy: "Naghahanap ka ba ng negosyong pwede mong simulan kahit wala kang karanasan?", source: "AiConnect VSL" },
     { angle: "Contrarian", copy: "The affiliate game is rigged (unless you have AI leverage).", source: "The Faceless Marketer" },
-    { angle: "Risk reversal", copy: "Your brand. Our lab. We handle everything.", source: "Radiantz" },
-    { angle: "Objection crusher", copy: "Even if you can't build websites, funnels, or run ads.", source: "Curzzo Live Workshop" },
-  ],
+    { angle: "Risk reversal", copy: "Your brand. Our lab. We handle everything.", source: "Radiantz" },  ],
 
   process: [
     { step: "01", title: "Read the numbers", body: "Sit with the media buyer: which hooks hold, where the drop-off is, what the cost per registration is telling us." },
