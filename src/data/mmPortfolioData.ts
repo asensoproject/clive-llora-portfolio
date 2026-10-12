@@ -103,6 +103,22 @@ export const MM_PORTFOLIO_DATA = {
   // Live funnels, newest first. Screenshots live in /public/projects.
   work: [
     {
+      title: "Curzzo",
+      kind: "Community marketplace · Platform growth",
+      body: "Marketplace where creators launch and sell paid communities and courses from day one, without building a website or funnel. It now lists 37 communities, the top ones with 1.2k–1.7k paying members, plus a built-in referral program for word-of-mouth growth.",
+      role: "Founder, positioning, go-to-market",
+      link: "https://curzzo.com/communities",
+      image: "/projects/curzzo/CURZZO-HOME.jpg",
+    },
+    {
+      title: "AI Creator Simplified",
+      kind: "Personality-brand offer page",
+      body: "Landing page for JayFlix AI's #1-ranked AI creator community (1,721 members at ₱2,497). It leads with an identity hook, builds the founder's authority, lists the audience's pain points, and closes with a 24-hour money-back guarantee and a price-increase trigger.",
+      role: "Landing page copy & build",
+      link: "https://curzzo.com/communities/ai-creators-simplified/landing",
+      image: "/projects/curzzo/CURZZO-AICS.jpg",
+    },
+    {
       title: "AICARE Pure Organic Barley",
       kind: "Product sales page · Cold traffic",
       body: "Direct-response sales page for a celebrity-endorsed barley drink: price anchored to ₱10 per glass, a launch-price countdown, free shipping and COD to remove friction, and copy kept inside food-product claim rules.",
@@ -157,7 +173,7 @@ export const MM_PORTFOLIO_DATA = {
     { angle: "Price anchor", copy: "Naturally nutritious, easy to mix, and only ₱10 per glass.", source: "AICARE Barley" },
     { angle: "Pain point", copy: "Getting your greens shouldn't be hard or expensive.", source: "AICARE Barley" },
     { angle: "Pattern interrupt", copy: "Business owner ka ba, o glorified packer?", source: "AiConnect VSL" },
-    { angle: "Qualifying question", copy: "Naghahanap ka ba ng negosyong pwede mong simulan kahit wala kang karanasan?", source: "AiConnect VSL" },
+    { angle: "Identity shift", copy: "Don't just be an AI consumer. Become an AI Creator.", source: "AI Creator Simplified" },
     { angle: "Contrarian", copy: "The affiliate game is rigged (unless you have AI leverage).", source: "The Faceless Marketer" },
     { angle: "Risk reversal", copy: "Your brand. Our lab. We handle everything.", source: "Radiantz" },  ],
 
