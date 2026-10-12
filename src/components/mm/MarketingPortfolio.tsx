@@ -293,7 +293,7 @@ const Hooks = () => (
         title="Hooks I've written, by angle"
         intro="Lines from my live funnels. Different offers, different audiences, different angles, in English and Taglish."
       />
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {D.hooks.map((h, i) => (
           <motion.figure key={h.copy} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.05 }} className="glass-panel rounded-2xl p-6 flex flex-col">
             <div className="flex items-center justify-between">

@@ -103,6 +103,14 @@ export const MM_PORTFOLIO_DATA = {
   // Live funnels, newest first. Screenshots live in /public/projects.
   work: [
     {
+      title: "AICARE Pure Organic Barley",
+      kind: "Product sales page · Cold traffic",
+      body: "Direct-response sales page for a celebrity-endorsed barley drink: price anchored to ₱10 per glass, a launch-price countdown, free shipping and COD to remove friction, and copy kept inside food-product claim rules.",
+      role: "Offer, copy, page build",
+      link: "https://store.aiconnectbiz.com/barley",
+      image: "/projects/aicare/AICARE-1.jpg",
+    },
+    {
       title: "AiConnect",
       kind: "VSL funnel · Taglish",
       body: "Video sales letter funnel for a zero-inventory e-commerce business opportunity, written in Taglish for Filipino first-time entrepreneurs, with a watch-to-unlock bonus to keep people watching to the end.",
@@ -146,6 +154,8 @@ export const MM_PORTFOLIO_DATA = {
 
   // Headlines and hooks from Clive's live pages, each labeled with the angle it uses.
   hooks: [
+    { angle: "Price anchor", copy: "Naturally nutritious, easy to mix, and only ₱10 per glass.", source: "AICARE Barley" },
+    { angle: "Pain point", copy: "Getting your greens shouldn't be hard or expensive.", source: "AICARE Barley" },
     { angle: "Pattern interrupt", copy: "Business owner ka ba, o glorified packer?", source: "AiConnect VSL" },
     { angle: "Qualifying question", copy: "Naghahanap ka ba ng negosyong pwede mong simulan kahit wala kang karanasan?", source: "AiConnect VSL" },
     { angle: "Contrarian", copy: "The affiliate game is rigged (unless you have AI leverage).", source: "The Faceless Marketer" },
