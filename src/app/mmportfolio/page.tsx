@@ -3,9 +3,9 @@ import { GlowBackground } from "@/components/GlowBackground";
 import { MarketingPortfolio } from "@/components/mm/MarketingPortfolio";
 
 export const metadata = {
-  title: "Clive Llora — Marketing Manager",
+  title: "Clive Llora — Marketing Manager (Cold Funnels & Webinars)",
   description:
-    "Marketing Manager portfolio for Clive Llora: full-funnel strategy, paid social, team and budget leadership, and data-driven growth.",
+    "Direct-response creative portfolio for Clive Llora: hooks, video ad scripts, briefs, and webinar, VSL and sales funnels for founder-led offers.",
   // Shared directly with hiring teams; keep it out of search results.
   robots: { index: false, follow: false },
 };

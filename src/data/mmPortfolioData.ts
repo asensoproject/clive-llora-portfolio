@@ -1,58 +1,64 @@
-// Content for the Marketing Manager portfolio at /mmportfolio.
-// Facts here come from "Resume 2026 - DMS.pdf"; keep them in sync with that resume.
+﻿// Content for the Marketing Manager portfolio at /mmportfolio, written for a
+// direct-response "Marketing Manager (Cold Funnels & Webinars)" role.
+// Facts come from "Resume 2026 - DMS.pdf", Clive's own notes, and his live funnels.
+// Only add numbers Clive has confirmed.
 
 export const MM_PORTFOLIO_DATA = {
   name: "Clive Llora",
   title: "Marketing Manager",
-  tagline: "Result-oriented techpreneur with a sunny point of view",
+  subtitle: "Direct-Response Creative · Cold Funnels & Webinars",
+  tagline: "I own the idea, the hook and the copy. Then I brief the team that ships it.",
   pitch:
-    "A software engineer by profession and a marketer by heart. I build and run full-funnel campaigns, from the ad to the landing page to the autoresponder, and manage them with an engineer's discipline for data, systems and measurable ROAS.",
-  status: "Interviewing for Marketing Manager roles",
+    "Since 2019 I've written and run cold paid-social funnels for founder-led offers: webinar and live-workshop registrations, VSL funnels, opt-in pages and sales pages for courses, communities and products. I take what the numbers say, turn it into angles and hooks, write the scripts and copy myself, and brief editors so the ad ships on time.",
+  status: "Open to: Marketing Manager (Cold Funnels & Webinars)",
   email: "clivellora05@gmail.com",
   phone: "+63 995 530 0226",
   phoneNote: "Viber · WhatsApp · Telegram",
-  location: "Bataan, Philippines",
+  location: "Bataan, Philippines · Remote, available on AEST hours",
   socialHandle: "@clivethedigipreneur",
   resumePdfUrl: "/Clive_Llora_Resume_Marketing.pdf",
-  badges: ["BS Management Information Systems", "Ex-TELUS", "Ex-Accenture", "Author · Entrepreneur · Educator"],
+  // Optional: paste a Loom intro URL here and an intro button appears in the hero and contact sections.
+  loomUrl: "",
+  badges: ["Meta Ads · YouTube", "Webinar & VSL Funnels", "Copywriter First", "AI-Native Workflow"],
 
   stats: [
-    { value: "₱1M+", label: "Marketing budget managed" },
-    { value: "5+", label: "Remote team members led" },
-    { value: "2019", label: "Running funnels & paid social since" },
-    { value: "30%", label: "Less system downtime (engineering)" },
+    { value: "US$700K", label: "Sales reached at Radiantz Skin after I rebuilt the offer" },
+    { value: "2019", label: "Writing & running cold paid-social funnels since" },
+    { value: "₱1M+", label: "Ad & marketing budget managed" },
+    { value: "5+", label: "Creative, marketing & sales team members led" },
   ],
 
-  pillars: [
+  // Mirrors the role's key responsibilities.
+  fit: [
     {
-      icon: "Filter",
-      title: "Funnel Strategy",
-      body: "Full funnels built end to end: ad creative, landing page and email follow-up, each stage tuned against ROAS.",
+      icon: "Lightbulb",
+      title: "Creative strategy for paid ads",
+      body: "Concepts, angles and hooks for Meta and YouTube, built on a real understanding of the offer, who it's for and why they'd buy now.",
     },
     {
-      icon: "Megaphone",
-      title: "Social Media Advertising",
-      body: "Paid social campaigns planned, launched and optimized for lead generation and sales.",
+      icon: "PenLine",
+      title: "I write the copy, every week",
+      body: "Ad copy, video ad scripts, static ad concepts, opt-in pages, registration pages and sales pages. The words are mine; I don't hand them off.",
     },
     {
-      icon: "Users",
-      title: "Team & Budget Leadership",
-      body: "Led a remote team of 5+ across project management, business development and campaigns, on a budget of over ₱1M.",
+      icon: "Clapperboard",
+      title: "Hook-driven promo video scripts",
+      body: "Short direct-response videos that sell a webinar, a live event or the current offer: hook in the first 3 seconds, one clear promise, one clear CTA.",
     },
     {
-      icon: "Database",
-      title: "Data-Driven Decisions",
-      body: "SQL and database expertise means I can pull, join and question the numbers myself instead of waiting on a report.",
+      icon: "ClipboardList",
+      title: "Briefs editors can execute",
+      body: "Every concept goes out as a shot-by-shot brief with hook, on-screen text, b-roll and CTA, and I run the feedback loop until the ad ships.",
     },
     {
-      icon: "Bot",
-      title: "AI Marketing",
-      body: "AI applied to creative, copy, chat automation and analysis so a small team ships like a large one.",
+      icon: "ChartLine",
+      title: "Creative from the data",
+      body: "I work with the media buyer on what's winning and why (hook rate, thumbstop, CTR, cost per registration) and feed that straight into the next batch.",
     },
     {
-      icon: "Mail",
-      title: "Email & Automation",
-      body: "Autoresponders and nurture sequences that keep leads warm and move them to purchase without manual follow-up.",
+      icon: "ShieldCheck",
+      title: "Compliant by default",
+      body: "Copy written inside Meta and YouTube policy and the constraints of education and finance offers: no income guarantees, claims backed by proof.",
     },
   ],
 
@@ -63,10 +69,20 @@ export const MM_PORTFOLIO_DATA = {
       duration: "2019 – Present",
       current: true,
       highlights: [
-        "Built full funnels (ad, landing page, autoresponder) and optimized them for ROAS.",
-        "Led a remote team of 5+ employees across project management, business development and marketing campaigns.",
-        "Managed a marketing budget of over a million pesos.",
-        "Developed expertise in digital marketing, sales funnels and lead generation, driving measurable results.",
+        "Build cold funnels end to end for digital courses, online communities and live webinars: ad, opt-in or registration page, and autoresponder follow-up, optimized for ROAS.",
+        "Write the ad copy, opt-in pages and video ad scripts, and brief the team that produces the creative.",
+        "Lead creative, marketing and sales teams: a remote team of 5+ across creative production, campaigns, business development and project management.",
+        "Manage a marketing budget of over a million pesos.",
+      ],
+    },
+    {
+      role: "Offer Strategist (Project Role)",
+      company: "Radiantz Skin Manufacturing Incorporated",
+      duration: "Project",
+      current: false,
+      highlights: [
+        "Created and revised the offer strategy for a GMP & ISO-certified health and beauty manufacturer's private-label program.",
+        "Helped grow sales to US$700K through a sharper offer, positioning and conversion path.",
       ],
     },
     {
@@ -75,87 +91,133 @@ export const MM_PORTFOLIO_DATA = {
       duration: "2012 – 2018",
       current: false,
       highlights: [
-        "Led development teams building scalable applications.",
-        "Specialized in database management, software development and system integration using SQL, Python and Java.",
-        "Reduced system downtime by 30% through efficient troubleshooting and system optimization.",
-        "Collaborated with cross-functional teams to design and implement user-centric features.",
+        "Led development teams building scalable applications; SQL, Python and Java.",
+        "Reduced system downtime by 30% through troubleshooting and system optimization.",
+        "This is where my habit of making decisions from data and shipping on schedule comes from.",
       ],
     },
   ],
 
   education: { degree: "BS in Management Information System", year: "Graduated 2008" },
 
-  // Marketing assets built or launched; screenshots live in /public/projects.
+  // Live funnels, newest first. Screenshots live in /public/projects.
   work: [
     {
-      title: "Learn247 Academy",
-      kind: "Lead-gen funnel & brand site",
-      body: "Brand website and paid-social lead funnel for the educational consulting business I market, with the domain verified on Meta for ad campaigns.",
-      link: "https://www.learn247.academy",
-      image: null as string | null,
+      title: "Curzzo Live Workshop",
+      kind: "Webinar funnel · Founder-led",
+      body: "Paid live Zoom workshop (₱299 seat) for a founder-led community offer. Proof-first hook built around real sales records, plus a countdown and a seat-reservation CTA.",
+      role: "Offer, hook, page copy, build",
+      link: "https://curzzo-webinar-test.vercel.app/",
+      image: "/projects/webinar/WEBINAR-1.jpg",
     },
     {
-      title: "Radiantz Manufacturing Incorporated",
-      kind: "B2B lead generation site",
-      body: "Website for a GMP & ISO-certified health and beauty manufacturer, built to turn aspiring founders, resellers and businesses into private-label clients through a six-step brand-launch journey and consultation CTAs.",
+      title: "AiConnect",
+      kind: "VSL funnel · Taglish",
+      body: "Video sales letter funnel for a zero-inventory e-commerce business opportunity, written in Taglish for Filipino first-time entrepreneurs, with a watch-to-unlock bonus to keep people watching to the end.",
+      role: "Angle, VSL page copy, build",
+      link: "https://aiconnectbiz.com/",
+      image: "/projects/aiconnect/AICONNECT-1.jpg",
+    },
+    {
+      title: "Radiantz Skin Manufacturing",
+      kind: "Offer strategy · B2B lead gen",
+      body: "Rebuilt the private-label offer into a six-step path from idea to launch with a clear starting capital, consultation CTAs and objection handling around FDA registration.",
+      role: "Offer strategy, positioning, site copy",
       link: "https://radiantzmanufacturing.com/",
       image: "/projects/radiantz/RADIANTZ-1.jpg",
     },
     {
-      title: "Curzzo",
-      kind: "Community monetization platform",
-      body: "Lets experts monetize a community from day one without building websites or funnels, with a built-in automated referral program for word-of-mouth growth.",
-      link: "https://curzzo.com/communities",
-      image: "/projects/curzzo/CURZZO-1.jpg",
+      title: "The Faceless Marketer",
+      kind: "Course sales page",
+      body: "Sales page for an AI UGC creatives masterclass aimed at Shopee and TikTok Shop affiliates. It's built on an old-way vs new-way contrast and a price-increase urgency trigger.",
+      role: "Offer, copy, build",
+      link: "https://the-faceless-marketer.vercel.app/",
+      image: "/projects/facelessmarketer/FACELESS-1.jpg",
     },
     {
       title: "Deyliherbs",
       kind: "Direct-response sales page",
-      body: "Conversion-focused sales page for a Filipino herbal tea brand, built on benefit-led copy, trust signals, a 45-day money-back guarantee, and cash-on-delivery ordering.",
+      body: "Sales page for a Filipino herbal tea brand using benefit-led copy, trust badges, a 45-day money-back guarantee and cash-on-delivery to reduce friction.",
+      role: "Copy, offer structure, build",
       link: "https://www.deyliherbs.com",
       image: "/projects/deyliherbs/DEYLIHERBS-HOME.jpg",
     },
+    {
+      title: "Learn247 Academy",
+      kind: "Courses, community & webinars",
+      body: "Brand hub for online courses, live webinars and coaching. Cold traffic from Meta ads lands on opt-in pages and goes into email follow-up.",
+      role: "Funnels, opt-in pages, ads",
+      link: "https://www.learn247.academy",
+      image: null as string | null,
+    },
+  ],
+
+  // Headlines and hooks from Clive's live pages, each labeled with the angle it uses.
+  hooks: [
+    { angle: "Proof-led", copy: "Monetize your expertise starting day 1, the same way I sold ₱100K with zero ad spend.", source: "Curzzo Live Workshop" },
+    { angle: "Pattern interrupt", copy: "Business owner ka ba, o glorified packer?", source: "AiConnect VSL" },
+    { angle: "Qualifying question", copy: "Naghahanap ka ba ng negosyong pwede mong simulan kahit wala kang karanasan?", source: "AiConnect VSL" },
+    { angle: "Contrarian", copy: "The affiliate game is rigged (unless you have AI leverage).", source: "The Faceless Marketer" },
+    { angle: "Risk reversal", copy: "Your brand. Our lab. We handle everything.", source: "Radiantz" },
+    { angle: "Objection crusher", copy: "Even if you can't build websites, funnels, or run ads.", source: "Curzzo Live Workshop" },
+  ],
+
+  process: [
+    { step: "01", title: "Read the numbers", body: "Sit with the media buyer: which hooks hold, where the drop-off is, what the cost per registration is telling us." },
+    { step: "02", title: "Find the angle", body: "Go back to the offer and the buyer. Write 10–20 hooks across angles: proof, pain, curiosity, contrarian, identity." },
+    { step: "03", title: "Write & script", body: "30–60s promo scripts, static concepts and the landing-page copy that matches them, so the message is the same from ad to page." },
+    { step: "04", title: "Brief & ship", body: "Shot-by-shot briefs for editors and the photo/video team, review rounds against the brief, and delivery on the agreed date." },
+    { step: "05", title: "Learn & iterate", body: "Winners get variations, losers get a diagnosis. Win rate against control is the scoreboard." },
+  ],
+
+  aiTools: [
+    { name: "Claude · ChatGPT · Gemini", use: "Research, angle mining, first drafts and script variations, always rewritten in my own voice" },
+    { name: "Higgsfield & AI video", use: "AI video and UGC-style creative for concept tests before a full shoot" },
+    { name: "AI image generation", use: "Static ad concepts and thumbnails, so the team sees the idea before production" },
   ],
 
   skills: [
-    "Social Media Advertising",
-    "Website Design & Funnel Creation",
-    "AI Marketing",
-    "Email Marketing",
-    "Lead Generation",
-    "ROAS Optimization",
-    "Database Design & Management",
-    "SQL Programming",
-    "Team Leadership",
-    "Business & Entrepreneurial Mindset",
+    "Direct-Response Copywriting",
+    "Video Ad Scripting",
+    "Hook & Angle Development",
+    "Webinar Funnels",
+    "VSL Funnels",
+    "Book-a-Call Funnels",
+    "Meta Ads",
+    "YouTube Ads",
+    "Landing Page & CRO",
+    "Offer Strategy",
+    "Creative Briefing",
+    "Email Autoresponders",
+    "SQL & Data Analysis",
   ],
 
   plan: [
     {
-      phase: "Days 1–30",
-      title: "Listen & audit",
+      phase: "Week 1–2",
+      title: "Learn the offer & the account",
       points: [
-        "Meet sales, product and leadership to learn the goals and the customer.",
-        "Audit every channel, funnel and tracking setup; establish a baseline for CAC, conversion and ROAS.",
-        "Find the quick wins: broken tracking, leaky landing pages, stalled follow-up.",
+        "Go through the webinar, the personality brand and the buyer journey as a prospect would.",
+        "Audit current and past winners with the media buyer: hooks, angles, CTR, cost per registration.",
+        "Build a swipe file and angle bank, then deliver the first batch of hooks and scripts.",
       ],
     },
     {
-      phase: "Days 31–60",
-      title: "Fix & test",
+      phase: "Week 3–6",
+      title: "Ship & test on a cadence",
       points: [
-        "Ship the quick wins and set up one reporting dashboard everyone trusts.",
-        "Launch structured A/B tests on offers, creative and landing pages.",
-        "Build or repair the nurture sequence so no lead goes cold.",
+        "Set a weekly creative rhythm: new concepts, scripts and briefs every week, on schedule.",
+        "Standardize briefs so editors and the photo/video team can execute without back-and-forth.",
+        "Line up landing-page copy tests alongside the ad tests so the message matches.",
       ],
     },
     {
-      phase: "Days 61–90",
-      title: "Scale & systemize",
+      phase: "Week 7–12",
+      title: "Raise the win rate",
       points: [
-        "Move budget to the channels and creatives that are proving out.",
-        "Document playbooks and a weekly cadence for the team.",
-        "Present a 12-month plan with targets tied to revenue.",
+        "Double down on winning angles with variations; retire what's fatiguing before it costs money.",
+        "Report win rate against control, hook rate and CTR trends to the team every week.",
+        "Document the playbook so the creative team can grow around it.",
       ],
     },
   ],
