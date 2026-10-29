@@ -253,7 +253,7 @@ export const OnboardingForm = () => {
         )}
 
         <div className="grid sm:grid-cols-[auto,1fr] gap-6 items-center rounded-2xl border border-slate-700 bg-slate-950/50 p-5">
-          <img src={ONBOARDING.bank.qrImage} alt={`${ONBOARDING.bank.bankName} InstaPay QR for ${ONBOARDING.bank.accountName}`} className="w-48 h-auto rounded-xl bg-white p-2 mx-auto" />
+          <img src={ONBOARDING.bank.qrImage} alt={`${ONBOARDING.bank.bankName} InstaPay QR for ${ONBOARDING.bank.accountName}`} className="w-64 sm:w-72 max-w-full h-auto rounded-xl bg-white p-2 mx-auto" />
           <div className="space-y-3 text-sm">
             <p className="font-semibold text-white">Transfer {peso(totals.total)} to:</p>
             <div>
