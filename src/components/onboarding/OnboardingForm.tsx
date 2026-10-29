@@ -79,8 +79,6 @@ export const OnboardingForm = () => {
     currentWebsite: "",
     products: "",
     preferredDomain: "",
-    brandAssetsLink: "",
-    targetLaunch: "",
     notes: "",
     billingName: "",
     billingAddress: "",
@@ -243,14 +241,6 @@ export const OnboardingForm = () => {
         >
           <input id="preferredDomain" required className={input} value={f.preferredDomain} onChange={set("preferredDomain")} placeholder="yourbrand.com" />
         </Field>
-        <div className="grid sm:grid-cols-2 gap-5">
-          <Field id="brandAssetsLink" text="Logo & brand files link" hint="Google Drive or Dropbox link to your logo, photos and certificates.">
-            <input id="brandAssetsLink" className={input} value={f.brandAssetsLink} onChange={set("brandAssetsLink")} placeholder="https://drive.google.com/…" inputMode="url" />
-          </Field>
-          <Field id="targetLaunch" text="Target launch date">
-            <input id="targetLaunch" type="date" className={input} value={f.targetLaunch} onChange={set("targetLaunch")} />
-          </Field>
-        </div>
         <Field id="notes" text="Anything else we should know?" hint="Brand colors, competitors, or anything specific about your products.">
           <textarea id="notes" rows={3} className={input} value={f.notes} onChange={set("notes")} />
         </Field>

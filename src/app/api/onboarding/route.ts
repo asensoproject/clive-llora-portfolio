@@ -35,8 +35,6 @@ export async function POST(request: Request) {
     products: str(p.products, 3000),
     owns_domain: p.ownsDomain === true ? true : p.ownsDomain === false ? false : null,
     preferred_domain: str(p.preferredDomain, 120).toLowerCase() || null,
-    brand_assets_link: str(p.brandAssetsLink, 500) || null,
-    target_launch: /^\d{4}-\d{2}-\d{2}$/.test(str(p.targetLaunch, 10)) ? str(p.targetLaunch, 10) : null,
     notes: str(p.notes, 3000) || null,
     billing_name: needsReceipt ? str(p.billingName, 200) : null,
     billing_address: needsReceipt ? str(p.billingAddress, 500) : null,
