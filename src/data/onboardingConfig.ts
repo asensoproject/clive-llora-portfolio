@@ -23,7 +23,7 @@ export const ONBOARDING = {
   // The fixed scope the client accepts. Bump `version` whenever the wording changes;
   // each submission stores the version it agreed to.
   scope: {
-    version: "2026-10-29",
+    version: "2026-10-29b",
     referenceSite: "https://radiantzmanufacturing.com/",
     included: [
       {
@@ -38,17 +38,20 @@ export const ONBOARDING = {
       },
       {
         title: "Domain",
-        billing: "At cost, paid by you",
+        billing: "1st year included",
         items: [
-          "Domain registration at cost, with no markup",
+          "First year included in the build fee if the domain costs under ₱1,000",
+          "Estimated domain cost: less than ₱1,000 per year",
+          "A domain costing more than ₱1,000 is billed at cost, with no markup",
           "The domain is registered in your company's name",
-          "Renewal is your responsibility",
+          "Yearly renewal is your responsibility",
         ],
       },
       {
         title: "CRM",
-        billing: "Subscription, around ₱450 / month, billed separately",
+        billing: "Starts free · ₱450 / month subscription",
         items: [
+          "We start you on the FREE version first; the subscription is ₱450 / month when you move to it",
           "Inquiry tracking from first contact to purchase order",
           "Quotation builder",
           "Purchase orders submitted by your customers",

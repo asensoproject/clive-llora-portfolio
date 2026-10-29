@@ -227,7 +227,7 @@ export const OnboardingForm = () => {
             <span className="font-mono text-2xl font-extrabold text-cyan-400">{peso(totals.total)}</span>
           </div>
           <p className="text-xs text-slate-500 leading-relaxed">
-            Billed separately: the domain at cost, and the CRM subscription at around {peso(ONBOARDING.crmMonthly)} / month, starting when your CRM goes live.
+            {`Includes your first year of domain (if under ₱1,000). The CRM starts on the free version; the ${peso(ONBOARDING.crmMonthly)} / month subscription is billed separately when you move to it.`}
           </p>
         </div>
 
