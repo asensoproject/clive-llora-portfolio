@@ -1,5 +1,7 @@
 import { randomBytes } from "crypto";
 import { ONBOARDING, computeTotals } from "@/data/onboardingConfig";
+import { after } from "next/server";
+import { sendOnboardingEmails } from "@/lib/onboardingEmails";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 const RECEIPT_PATH = /^\d{4}-\d{2}\/[0-9a-f-]{36}\.(jpg|png|webp|heic|heif|pdf)$/;
@@ -83,6 +85,22 @@ export async function POST(request: Request) {
     console.error("onboarding insert failed", error);
     return Response.json({ error: "Something went wrong saving your details. Please try again." }, { status: 500 });
   }
+
+  // Send the owner alert and client confirmation after the response goes out.
+  after(async () => {
+    const { data: signed } = await db.storage.from(ONBOARDING.receipt.bucket).createSignedUrl(row.receipt_path, 60 * 60 * 24 * 7);
+    await sendOnboardingEmails(
+      {
+        ...row,
+        reference: ref,
+        needs_official_receipt: needsReceipt,
+        base_amount: totals.base,
+        tax_amount: totals.tax,
+        total_amount: totals.total,
+      },
+      signed?.signedUrl ?? null
+    );
+  });
 
   return Response.json({ reference: ref, total: totals.total });
 }
