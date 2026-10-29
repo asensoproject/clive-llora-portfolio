@@ -27,15 +27,9 @@ export async function POST(request: Request) {
   const row = {
     company_name: str(p.companyName, 200),
     contact_name: str(p.contactName, 200),
-    contact_position: str(p.contactPosition, 120) || null,
     email: str(p.email, 200).toLowerCase(),
     phone: str(p.phone, 60),
-    company_address: str(p.companyAddress, 500) || null,
-    current_website: str(p.currentWebsite, 300) || null,
-    products: str(p.products, 3000),
-    owns_domain: p.ownsDomain === true ? true : p.ownsDomain === false ? false : null,
     preferred_domain: str(p.preferredDomain, 120).toLowerCase() || null,
-    notes: str(p.notes, 3000) || null,
     billing_name: needsReceipt ? str(p.billingName, 200) : null,
     billing_address: needsReceipt ? str(p.billingAddress, 500) : null,
     billing_tin: needsReceipt ? str(p.billingTin, 40) : null,
@@ -48,11 +42,8 @@ export async function POST(request: Request) {
   if (!row.contact_name) missing.push("contact person");
   if (!EMAIL.test(row.email)) missing.push("a valid email");
   if (!row.phone) missing.push("phone number");
-  if (!row.products) missing.push("products or services");
   if (needsReceipt && !row.billing_name) missing.push("registered name for the receipt");
   if (needsReceipt && !row.billing_tin) missing.push("TIN for the receipt");
-  if (row.owns_domain === null) missing.push("whether you already own a domain");
-  if (!row.preferred_domain) missing.push(row.owns_domain ? "your domain name" : "your preferred domain name");
   if (!RECEIPT_PATH.test(row.receipt_path)) missing.push("the bank transfer receipt");
   if (p.scopeAccepted !== true) missing.push("confirmation that you've read the project scope");
   if (p.consent !== true) missing.push("privacy consent");

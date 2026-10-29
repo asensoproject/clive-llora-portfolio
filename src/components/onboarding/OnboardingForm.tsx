@@ -72,21 +72,15 @@ export const OnboardingForm = () => {
   const [f, setF] = useState({
     companyName: "",
     contactName: "",
-    contactPosition: "",
     email: "",
     phone: "",
-    companyAddress: "",
-    currentWebsite: "",
-    products: "",
     preferredDomain: "",
-    notes: "",
     billingName: "",
     billingAddress: "",
     billingTin: "",
     paymentReference: "",
   });
   const [scopeAccepted, setScopeAccepted] = useState(false);
-  const [ownsDomain, setOwnsDomain] = useState<boolean | null>(null);
   const [needsReceipt, setNeedsReceipt] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [consent, setConsent] = useState(false);
@@ -119,7 +113,6 @@ export const OnboardingForm = () => {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!scopeAccepted) return setStatus({ kind: "error", message: "Please confirm you've read the project scope." });
-    if (ownsDomain === null) return setStatus({ kind: "error", message: "Please tell us whether you already own a domain." });
     if (!file) return setStatus({ kind: "error", message: "Please upload your bank transfer receipt." });
     if (!consent) return setStatus({ kind: "error", message: "Please agree to the privacy notice to continue." });
 
@@ -143,7 +136,7 @@ export const OnboardingForm = () => {
       const res = await fetch("/api/onboarding", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...f, ownsDomain, scopeAccepted, needsOfficialReceipt: needsReceipt, receiptPath: signedJson.path, consent }),
+        body: JSON.stringify({ ...f, scopeAccepted, needsOfficialReceipt: needsReceipt, receiptPath: signedJson.path, consent }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);
@@ -174,19 +167,13 @@ export const OnboardingForm = () => {
 
   return (
     <form onSubmit={submit} className="space-y-6" noValidate={false}>
-      <Card step="Step 1 of 5" title="Company & contact">
+      <Card step="Step 1 of 4" title="Your details">
         <div className="grid sm:grid-cols-2 gap-5">
           <Field id="companyName" text="Company name" required>
             <input id="companyName" required className={input} value={f.companyName} onChange={set("companyName")} autoComplete="organization" />
           </Field>
-          <Field id="currentWebsite" text="Current website (if any)">
-            <input id="currentWebsite" className={input} value={f.currentWebsite} onChange={set("currentWebsite")} placeholder="https://" inputMode="url" />
-          </Field>
           <Field id="contactName" text="Contact person" required>
             <input id="contactName" required className={input} value={f.contactName} onChange={set("contactName")} autoComplete="name" />
-          </Field>
-          <Field id="contactPosition" text="Position">
-            <input id="contactPosition" className={input} value={f.contactPosition} onChange={set("contactPosition")} autoComplete="organization-title" />
           </Field>
           <Field id="email" text="Email" required>
             <input id="email" type="email" required className={input} value={f.email} onChange={set("email")} autoComplete="email" />
@@ -195,12 +182,12 @@ export const OnboardingForm = () => {
             <input id="phone" type="tel" required className={input} value={f.phone} onChange={set("phone")} autoComplete="tel" placeholder="+63" />
           </Field>
         </div>
-        <Field id="companyAddress" text="Company address">
-          <textarea id="companyAddress" rows={2} className={input} value={f.companyAddress} onChange={set("companyAddress")} autoComplete="street-address" />
+        <Field id="preferredDomain" text="Domain you have or want (optional)" hint="We'll confirm availability and the at-cost price with you later.">
+          <input id="preferredDomain" className={input} value={f.preferredDomain} onChange={set("preferredDomain")} placeholder="yourbrand.com" />
         </Field>
       </Card>
 
-      <Card step="Step 2 of 5" title="What we'll set up for you">
+      <Card step="Step 2 of 4" title="What we'll set up for you">
         <Scope />
         <label className="flex items-start gap-3 rounded-xl border border-cyan-500/40 bg-cyan-500/5 px-4 py-3 text-sm text-slate-200 cursor-pointer">
           <input type="checkbox" checked={scopeAccepted} onChange={(e) => setScopeAccepted(e.target.checked)} className="accent-cyan-500 w-4 h-4 mt-0.5 shrink-0" />
@@ -208,45 +195,7 @@ export const OnboardingForm = () => {
         </label>
       </Card>
 
-      <Card step="Step 3 of 5" title="Your brand & domain">
-        <Field id="products" text="What do you manufacture, and who do you sell to?" required hint="Product lines, private-label or toll services, MOQ, target customers. This becomes your catalog and website copy.">
-          <textarea id="products" rows={4} required className={input} value={f.products} onChange={set("products")} />
-        </Field>
-        <div>
-          <p className={label}>
-            Do you already own a domain? <span className="text-cyan-400">*</span>
-          </p>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              { v: true, t: "Yes, I have one" },
-              { v: false, t: "No, register one for me" },
-            ].map((o) => (
-              <label
-                key={o.t}
-                className={`flex items-center gap-3 rounded-xl border px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
-                  ownsDomain === o.v ? "border-cyan-500/60 bg-cyan-500/10 text-white" : "border-slate-700 text-slate-300 hover:border-slate-500"
-                }`}
-              >
-                <input type="radio" name="ownsDomain" checked={ownsDomain === o.v} onChange={() => setOwnsDomain(o.v)} className="accent-cyan-500 w-4 h-4 shrink-0" />
-                {o.t}
-              </label>
-            ))}
-          </div>
-        </div>
-        <Field
-          id="preferredDomain"
-          text={ownsDomain ? "Your domain" : "Preferred domain name"}
-          required
-          hint={ownsDomain ? "We'll ask for access to point it to your new website." : "We'll check availability and confirm the at-cost price before registering it in your company's name."}
-        >
-          <input id="preferredDomain" required className={input} value={f.preferredDomain} onChange={set("preferredDomain")} placeholder="yourbrand.com" />
-        </Field>
-        <Field id="notes" text="Anything else we should know?" hint="Brand colors, competitors, or anything specific about your products.">
-          <textarea id="notes" rows={3} className={input} value={f.notes} onChange={set("notes")} />
-        </Field>
-      </Card>
-
-      <Card step="Step 4 of 5" title="Payment">
+      <Card step="Step 3 of 4" title="Payment">
         <div className="rounded-2xl border border-slate-700 bg-slate-950/50 p-5 space-y-3">
           <div className="flex justify-between gap-3 text-sm text-slate-300">
             <span>
@@ -322,7 +271,7 @@ export const OnboardingForm = () => {
         </div>
       </Card>
 
-      <Card step="Step 5 of 5" title="Upload your bank transfer receipt">
+      <Card step="Step 4 of 4" title="Upload your bank transfer receipt">
         <label
           htmlFor="receipt"
           className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed px-6 py-10 text-center cursor-pointer transition-colors ${

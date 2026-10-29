@@ -25,7 +25,7 @@ export default function OnboardingPage() {
         <p className="font-mono text-xs uppercase tracking-wider text-cyan-400 font-semibold">Client onboarding</p>
         <h1 className="mt-2 text-3xl sm:text-5xl font-extrabold tracking-tight text-white">{ONBOARDING.packageName}</h1>
         <p className="mt-4 text-slate-300 leading-relaxed">
-          {`Review what we'll set up, tell us about your company, then send the ${peso(ONBOARDING.baseAmount)} partner-price build fee by bank transfer and upload the receipt. It takes about 10 minutes. We'll confirm your payment and schedule the kickoff call.`}
+          {`Add your details, review what we'll set up, then send the ${peso(ONBOARDING.baseAmount)} partner-price build fee by bank transfer and upload the receipt. It takes about 3 minutes. We'll confirm your payment and schedule the kickoff call.`}
         </p>
         <div className="mt-10">
           <OnboardingForm />
