@@ -4,8 +4,8 @@ import { OnboardingForm } from "@/components/onboarding/OnboardingForm";
 import { ONBOARDING, peso } from "@/data/onboardingConfig";
 
 export const metadata = {
-  title: "Client Onboarding — Custom Website + CRM",
-  description: "Onboarding form for the Custom Website + CRM package.",
+  title: "Client Onboarding — Brand Website + CRM",
+  description: "Onboarding form for the Brand Website + CRM package.",
   // Sent directly to clients; keep it out of search results.
   robots: { index: false, follow: false },
 };
