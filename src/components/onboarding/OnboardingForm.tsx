@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { Check, CheckCircle2, Copy, FileUp, Loader2, Lock, Receipt } from "lucide-react";
+import { Check, CheckCircle2, Copy, FileUp, Loader2, Lock, Receipt, X } from "lucide-react";
 import { ONBOARDING, computeTotals, peso } from "@/data/onboardingConfig";
 
 type Status = { kind: "idle" } | { kind: "submitting"; step: string } | { kind: "error"; message: string } | { kind: "done"; reference: string; total: number };
@@ -28,28 +28,43 @@ const Card = ({ step, title, children }: { step: string; title: string; children
   </section>
 );
 
-const CheckList = ({ name, options, value, onChange }: { name: string; options: string[]; value: string[]; onChange: (v: string[]) => void }) => (
-  <div className="grid sm:grid-cols-2 gap-2">
-    {options.map((o) => {
-      const on = value.includes(o);
-      return (
-        <label
-          key={o}
-          className={`flex items-center gap-3 rounded-xl border px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
-            on ? "border-cyan-500/60 bg-cyan-500/10 text-white" : "border-slate-700 text-slate-300 hover:border-slate-500"
-          }`}
-        >
-          <input
-            type="checkbox"
-            name={name}
-            checked={on}
-            onChange={() => onChange(on ? value.filter((x) => x !== o) : [...value, o])}
-            className="accent-cyan-500 w-4 h-4 shrink-0"
-          />
-          {o}
-        </label>
-      );
-    })}
+const Scope = () => (
+  <div className="space-y-4">
+    {ONBOARDING.scope.included.map((s, i) => (
+      <div key={s.title} className="rounded-2xl border border-slate-700 bg-slate-950/50 p-5">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 className="font-bold text-white">
+            {i + 1}. {s.title}
+          </h3>
+          <span className="text-xs font-mono text-emerald-400">{s.billing}</span>
+        </div>
+        <ul className="mt-3 space-y-2">
+          {s.items.map((item) => (
+            <li key={item} className="flex gap-2.5 text-sm text-slate-300 leading-relaxed">
+              <Check className="w-4 h-4 mt-0.5 text-emerald-400 shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+    <div className="rounded-2xl border border-slate-800 p-5">
+      <h3 className="font-bold text-slate-300">Not included in version 1</h3>
+      <ul className="mt-3 space-y-2">
+        {ONBOARDING.scope.notIncluded.map((item) => (
+          <li key={item} className="flex gap-2.5 text-sm text-slate-400 leading-relaxed">
+            <X className="w-4 h-4 mt-0.5 text-slate-500 shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-sm text-slate-400">
+      See the section layout we&apos;ll follow:{" "}
+      <a href={ONBOARDING.scope.referenceSite} target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline">
+        radiantzmanufacturing.com
+      </a>
+    </p>
   </div>
 );
 
@@ -63,6 +78,7 @@ export const OnboardingForm = () => {
     companyAddress: "",
     currentWebsite: "",
     products: "",
+    preferredDomain: "",
     brandAssetsLink: "",
     targetLaunch: "",
     notes: "",
@@ -71,8 +87,8 @@ export const OnboardingForm = () => {
     billingTin: "",
     paymentReference: "",
   });
-  const [pages, setPages] = useState<string[]>([]);
-  const [crmNeeds, setCrmNeeds] = useState<string[]>([]);
+  const [scopeAccepted, setScopeAccepted] = useState(false);
+  const [ownsDomain, setOwnsDomain] = useState<boolean | null>(null);
   const [needsReceipt, setNeedsReceipt] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [consent, setConsent] = useState(false);
@@ -104,6 +120,8 @@ export const OnboardingForm = () => {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!scopeAccepted) return setStatus({ kind: "error", message: "Please confirm you've read the project scope." });
+    if (ownsDomain === null) return setStatus({ kind: "error", message: "Please tell us whether you already own a domain." });
     if (!file) return setStatus({ kind: "error", message: "Please upload your bank transfer receipt." });
     if (!consent) return setStatus({ kind: "error", message: "Please agree to the privacy notice to continue." });
 
@@ -127,7 +145,7 @@ export const OnboardingForm = () => {
       const res = await fetch("/api/onboarding", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...f, pages, crmNeeds, needsOfficialReceipt: needsReceipt, receiptPath: signedJson.path, consent }),
+        body: JSON.stringify({ ...f, ownsDomain, scopeAccepted, needsOfficialReceipt: needsReceipt, receiptPath: signedJson.path, consent }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);
@@ -158,7 +176,7 @@ export const OnboardingForm = () => {
 
   return (
     <form onSubmit={submit} className="space-y-6" noValidate={false}>
-      <Card step="Step 1 of 4" title="Company & contact">
+      <Card step="Step 1 of 5" title="Company & contact">
         <div className="grid sm:grid-cols-2 gap-5">
           <Field id="companyName" text="Company name" required>
             <input id="companyName" required className={input} value={f.companyName} onChange={set("companyName")} autoComplete="organization" />
@@ -184,18 +202,47 @@ export const OnboardingForm = () => {
         </Field>
       </Card>
 
-      <Card step="Step 2 of 4" title="Your project">
-        <Field id="products" text="What do you manufacture, and who do you sell to?" required hint="Product categories, private-label services, MOQ, target clients. As much detail as you can.">
+      <Card step="Step 2 of 5" title="What we'll set up for you">
+        <Scope />
+        <label className="flex items-start gap-3 rounded-xl border border-cyan-500/40 bg-cyan-500/5 px-4 py-3 text-sm text-slate-200 cursor-pointer">
+          <input type="checkbox" checked={scopeAccepted} onChange={(e) => setScopeAccepted(e.target.checked)} className="accent-cyan-500 w-4 h-4 mt-0.5 shrink-0" />
+          <span>I&apos;ve read the project scope above and understand what is and isn&apos;t included.</span>
+        </label>
+      </Card>
+
+      <Card step="Step 3 of 5" title="Your brand & domain">
+        <Field id="products" text="What do you manufacture, and who do you sell to?" required hint="Product lines, private-label or toll services, MOQ, target customers. This becomes your catalog and website copy.">
           <textarea id="products" rows={4} required className={input} value={f.products} onChange={set("products")} />
         </Field>
         <div>
-          <p className={label}>Website pages you need</p>
-          <CheckList name="pages" options={ONBOARDING.pages} value={pages} onChange={setPages} />
+          <p className={label}>
+            Do you already own a domain? <span className="text-cyan-400">*</span>
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { v: true, t: "Yes, I have one" },
+              { v: false, t: "No, register one for me" },
+            ].map((o) => (
+              <label
+                key={o.t}
+                className={`flex items-center gap-3 rounded-xl border px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
+                  ownsDomain === o.v ? "border-cyan-500/60 bg-cyan-500/10 text-white" : "border-slate-700 text-slate-300 hover:border-slate-500"
+                }`}
+              >
+                <input type="radio" name="ownsDomain" checked={ownsDomain === o.v} onChange={() => setOwnsDomain(o.v)} className="accent-cyan-500 w-4 h-4 shrink-0" />
+                {o.t}
+              </label>
+            ))}
+          </div>
         </div>
-        <div>
-          <p className={label}>What should the CRM handle?</p>
-          <CheckList name="crmNeeds" options={ONBOARDING.crmNeeds} value={crmNeeds} onChange={setCrmNeeds} />
-        </div>
+        <Field
+          id="preferredDomain"
+          text={ownsDomain ? "Your domain" : "Preferred domain name"}
+          required
+          hint={ownsDomain ? "We'll ask for access to point it to your new website." : "We'll check availability and confirm the at-cost price before registering it in your company's name."}
+        >
+          <input id="preferredDomain" required className={input} value={f.preferredDomain} onChange={set("preferredDomain")} placeholder="yourbrand.com" />
+        </Field>
         <div className="grid sm:grid-cols-2 gap-5">
           <Field id="brandAssetsLink" text="Logo & brand files link" hint="Google Drive or Dropbox link to your logo, photos and certificates.">
             <input id="brandAssetsLink" className={input} value={f.brandAssetsLink} onChange={set("brandAssetsLink")} placeholder="https://drive.google.com/…" inputMode="url" />
@@ -204,16 +251,22 @@ export const OnboardingForm = () => {
             <input id="targetLaunch" type="date" className={input} value={f.targetLaunch} onChange={set("targetLaunch")} />
           </Field>
         </div>
-        <Field id="notes" text="Anything else we should know?" hint="Websites you like, competitors, features you have in mind.">
+        <Field id="notes" text="Anything else we should know?" hint="Brand colors, competitors, or anything specific about your products.">
           <textarea id="notes" rows={3} className={input} value={f.notes} onChange={set("notes")} />
         </Field>
       </Card>
 
-      <Card step="Step 3 of 4" title="Payment">
+      <Card step="Step 4 of 5" title="Payment">
         <div className="rounded-2xl border border-slate-700 bg-slate-950/50 p-5 space-y-3">
-          <div className="flex justify-between text-sm text-slate-300">
-            <span>{ONBOARDING.packageName}</span>
-            <span className="font-mono">{peso(totals.base)}</span>
+          <div className="flex justify-between gap-3 text-sm text-slate-300">
+            <span>
+              {ONBOARDING.packageName} · one-time build fee
+              <span className="block text-xs text-emerald-400 font-semibold">{ONBOARDING.priceLabel}</span>
+            </span>
+            <span className="font-mono text-right shrink-0">
+              <span className="block text-xs text-slate-500 line-through">{peso(ONBOARDING.regularAmount)}</span>
+              {peso(totals.base)}
+            </span>
           </div>
           <label className="flex items-start gap-3 rounded-xl border border-slate-700 px-3.5 py-3 text-sm text-slate-200 cursor-pointer hover:border-slate-500">
             <input type="checkbox" checked={needsReceipt} onChange={(e) => setNeedsReceipt(e.target.checked)} className="accent-cyan-500 w-4 h-4 mt-0.5 shrink-0" />
@@ -234,6 +287,9 @@ export const OnboardingForm = () => {
             <span className="font-semibold text-white">Total to transfer</span>
             <span className="font-mono text-2xl font-extrabold text-cyan-400">{peso(totals.total)}</span>
           </div>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Billed separately: the domain at cost, and the CRM subscription at around {peso(ONBOARDING.crmMonthly)} / month, starting when your CRM goes live.
+          </p>
         </div>
 
         {needsReceipt && (
@@ -276,7 +332,7 @@ export const OnboardingForm = () => {
         </div>
       </Card>
 
-      <Card step="Step 4 of 4" title="Upload your bank transfer receipt">
+      <Card step="Step 5 of 5" title="Upload your bank transfer receipt">
         <label
           htmlFor="receipt"
           className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed px-6 py-10 text-center cursor-pointer transition-colors ${

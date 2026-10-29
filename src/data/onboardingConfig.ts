@@ -2,8 +2,12 @@
 // The API recomputes the totals from this file; never trust amounts sent by the browser.
 
 export const ONBOARDING = {
-  packageName: "Custom Website + CRM",
+  packageName: "Brand Website + CRM",
   baseAmount: 50000,
+  // Shown struck through next to baseAmount.
+  regularAmount: 100000,
+  priceLabel: "Discounted partner price",
+  crmMonthly: 450,
   // Added only when the client asks for an official receipt.
   receiptTaxRate: 0.12,
   currency: "PHP",
@@ -16,29 +20,54 @@ export const ONBOARDING = {
     note: "InstaPay QR works from any bank or e-wallet. Your bank may charge a transfer fee.",
   },
 
-  pages: [
-    "Home",
-    "About the company",
-    "Products / Services",
-    "Manufacturing capabilities & facility",
-    "Certifications (FDA, GMP, ISO)",
-    "Private-label / toll manufacturing process",
-    "Request a quote form",
-    "Contact",
-    "Blog / News",
-    "Careers",
-  ],
-
-  crmNeeds: [
-    "Lead capture & sales pipeline",
-    "Quote / inquiry management",
-    "Client accounts & contact records",
-    "Order & production tracking",
-    "Product formulation / sample tracking",
-    "Inventory",
-    "Email or SMS notifications",
-    "Reports & dashboard",
-  ],
+  // The fixed scope the client accepts. Bump `version` whenever the wording changes;
+  // each submission stores the version it agreed to.
+  scope: {
+    version: "2026-10-29",
+    referenceSite: "https://radiantzmanufacturing.com/",
+    included: [
+      {
+        title: "Brand website",
+        billing: "Included in the build fee",
+        items: [
+          "Sections patterned after radiantzmanufacturing.com",
+          "Product catalog pages for your brand's lines",
+          "Structured inquiry form with automatic lead scoring (hot, warm, cold)",
+          "Mobile-friendly, hosted on Vercel",
+        ],
+      },
+      {
+        title: "Domain",
+        billing: "At cost, paid by you",
+        items: [
+          "Domain registration at cost, with no markup",
+          "The domain is registered in your company's name",
+          "Renewal is your responsibility",
+        ],
+      },
+      {
+        title: "CRM",
+        billing: "Subscription, around ₱450 / month, billed separately",
+        items: [
+          "Inquiry tracking from first contact to purchase order",
+          "Quotation builder",
+          "Purchase orders submitted by your customers",
+          "Payment terms selectable per deal: full payment, downpayment, or cash on delivery",
+          "Payment proof upload, verified by your accounting team before an order can be completed",
+          "Order status visible to your customers, including Production and an estimated timeline",
+          "Job order printed or sent to a Production Manager portal when a PO moves to production",
+          "Admin dashboard showing collected sales for today, this month, or a custom date range",
+          "Roles and permissions for admin, customer and team members, with custom roles",
+          "Email notifications",
+        ],
+      },
+    ],
+    notIncluded: [
+      "Online payment gateway (payments are bank transfer with proof upload only)",
+      "Batch and production tracking",
+      "FDA compliance tracking",
+    ],
+  },
 
   receipt: {
     bucket: "payment-receipts",

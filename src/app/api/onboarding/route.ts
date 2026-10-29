@@ -8,8 +8,6 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type Payload = Record<string, unknown>;
 
 const str = (v: unknown, max = 500) => (typeof v === "string" ? v.trim().slice(0, max) : "");
-const list = (v: unknown, allowed: string[]) =>
-  Array.isArray(v) ? v.filter((x): x is string => typeof x === "string" && allowed.includes(x)) : [];
 
 function reference() {
   const d = new Date();
@@ -35,8 +33,8 @@ export async function POST(request: Request) {
     company_address: str(p.companyAddress, 500) || null,
     current_website: str(p.currentWebsite, 300) || null,
     products: str(p.products, 3000),
-    pages: list(p.pages, ONBOARDING.pages),
-    crm_needs: list(p.crmNeeds, ONBOARDING.crmNeeds),
+    owns_domain: p.ownsDomain === true ? true : p.ownsDomain === false ? false : null,
+    preferred_domain: str(p.preferredDomain, 120).toLowerCase() || null,
     brand_assets_link: str(p.brandAssetsLink, 500) || null,
     target_launch: /^\d{4}-\d{2}-\d{2}$/.test(str(p.targetLaunch, 10)) ? str(p.targetLaunch, 10) : null,
     notes: str(p.notes, 3000) || null,
@@ -55,7 +53,10 @@ export async function POST(request: Request) {
   if (!row.products) missing.push("products or services");
   if (needsReceipt && !row.billing_name) missing.push("registered name for the receipt");
   if (needsReceipt && !row.billing_tin) missing.push("TIN for the receipt");
+  if (row.owns_domain === null) missing.push("whether you already own a domain");
+  if (!row.preferred_domain) missing.push(row.owns_domain ? "your domain name" : "your preferred domain name");
   if (!RECEIPT_PATH.test(row.receipt_path)) missing.push("the bank transfer receipt");
+  if (p.scopeAccepted !== true) missing.push("confirmation that you've read the project scope");
   if (p.consent !== true) missing.push("privacy consent");
   if (missing.length) {
     return Response.json({ error: `Please provide ${missing.join(", ")}.` }, { status: 400 });
@@ -83,6 +84,8 @@ export async function POST(request: Request) {
     tax_rate: totals.taxRate,
     tax_amount: totals.tax,
     total_amount: totals.total,
+    scope_version: ONBOARDING.scope.version,
+    scope_accepted_at: new Date().toISOString(),
     consent_at: new Date().toISOString(),
     user_agent: request.headers.get("user-agent")?.slice(0, 300) ?? null,
   });
