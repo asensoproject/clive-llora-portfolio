@@ -23,14 +23,25 @@ export const ONBOARDING = {
   // The fixed scope the client accepts. Bump `version` whenever the wording changes;
   // each submission stores the version it agreed to.
   scope: {
-    version: "2026-10-29b",
-    referenceSite: "https://radiantzmanufacturing.com/",
+    version: "2026-10-29c",
     included: [
       {
         title: "Brand website",
         billing: "Included in the build fee",
+        sections: [
+          "Hero with your headline, key numbers and main call-to-action",
+          "How it works: step-by-step path from inquiry to launch",
+          "Who we help: the types of clients you serve",
+          "About your company",
+          "Services: what you offer, from idea to shelf",
+          "Facility & capabilities: machines, capacity and photos",
+          "Product categories you manufacture and private-label",
+          "Signature formulations",
+          "Quality, certifications & community impact",
+          "Location with map",
+          "Contact & inquiry form",
+        ],
         items: [
-          "Sections patterned after radiantzmanufacturing.com",
           "Product catalog pages for your brand's lines",
           "Structured inquiry form with automatic lead scoring (hot, warm, cold)",
           "Mobile-friendly, hosted on Vercel",

@@ -38,6 +38,17 @@ const Scope = () => (
           </h3>
           <span className="text-xs font-mono text-emerald-400">{s.billing}</span>
         </div>
+        {"sections" in s && s.sections && (
+          <div className="mt-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Homepage sections</p>
+            <ol className="mt-2 grid sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-slate-300 list-decimal list-inside">
+              {s.sections.map((sec) => (
+                <li key={sec}>{sec}</li>
+              ))}
+            </ol>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Also included</p>
+          </div>
+        )}
         <ul className="mt-3 space-y-2">
           {s.items.map((item) => (
             <li key={item} className="flex gap-2.5 text-sm text-slate-300 leading-relaxed">
@@ -59,12 +70,6 @@ const Scope = () => (
         ))}
       </ul>
     </div>
-    <p className="text-sm text-slate-400">
-      See the section layout we&apos;ll follow:{" "}
-      <a href={ONBOARDING.scope.referenceSite} target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline">
-        radiantzmanufacturing.com
-      </a>
-    </p>
   </div>
 );
 
