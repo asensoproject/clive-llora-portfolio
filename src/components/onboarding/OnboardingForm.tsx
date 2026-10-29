@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { Check, CheckCircle2, Copy, FileUp, Loader2, Lock, Receipt, X } from "lucide-react";
+import { Check, CheckCircle2, Copy, FileUp, Loader2, Lock, Receipt } from "lucide-react";
 import { ONBOARDING, computeTotals, peso } from "@/data/onboardingConfig";
 
 type Status = { kind: "idle" } | { kind: "submitting"; step: string } | { kind: "error"; message: string } | { kind: "done"; reference: string; total: number };
@@ -59,17 +59,6 @@ const Scope = () => (
         </ul>
       </div>
     ))}
-    <div className="rounded-2xl border border-slate-800 p-5">
-      <h3 className="font-bold text-slate-300">Not included in version 1</h3>
-      <ul className="mt-3 space-y-2">
-        {ONBOARDING.scope.notIncluded.map((item) => (
-          <li key={item} className="flex gap-2.5 text-sm text-slate-400 leading-relaxed">
-            <X className="w-4 h-4 mt-0.5 text-slate-500 shrink-0" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
   </div>
 );
 
@@ -196,7 +185,7 @@ export const OnboardingForm = () => {
         <Scope />
         <label className="flex items-start gap-3 rounded-xl border border-cyan-500/40 bg-cyan-500/5 px-4 py-3 text-sm text-slate-200 cursor-pointer">
           <input type="checkbox" checked={scopeAccepted} onChange={(e) => setScopeAccepted(e.target.checked)} className="accent-cyan-500 w-4 h-4 mt-0.5 shrink-0" />
-          <span>I&apos;ve read the project scope above and understand what is and isn&apos;t included.</span>
+          <span>I&apos;ve read the project scope above and understand what&apos;s included.</span>
         </label>
       </Card>
 

@@ -23,7 +23,7 @@ export const ONBOARDING = {
   // The fixed scope the client accepts. Bump `version` whenever the wording changes;
   // each submission stores the version it agreed to.
   scope: {
-    version: "2026-10-29c",
+    version: "2026-10-29d",
     included: [
       {
         title: "Brand website",
@@ -75,11 +75,6 @@ export const ONBOARDING = {
           "Email notifications",
         ],
       },
-    ],
-    notIncluded: [
-      "Online payment gateway (payments are bank transfer with proof upload only)",
-      "Batch and production tracking",
-      "FDA compliance tracking",
     ],
   },
 
