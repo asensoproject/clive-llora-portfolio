@@ -221,7 +221,7 @@ export const OnboardingForm = () => {
             <span className="font-mono text-2xl font-extrabold text-cyan-400">{peso(totals.total)}</span>
           </div>
           <p className="text-xs text-slate-500 leading-relaxed">
-            {`Includes your first year of domain (if under ₱1,000). The CRM starts on the free version; the ${peso(ONBOARDING.crmMonthly)} / month subscription is billed separately when you move to it.`}
+            {`Includes your first year of domain (if under ₱1,000). Pancake CRM starts on the free version; the ${peso(ONBOARDING.crmMonthly)} / month subscription is billed separately when you move to it.`}
           </p>
         </div>
 

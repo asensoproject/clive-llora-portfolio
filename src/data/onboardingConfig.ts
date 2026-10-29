@@ -23,7 +23,7 @@ export const ONBOARDING = {
   // The fixed scope the client accepts. Bump `version` whenever the wording changes;
   // each submission stores the version it agreed to.
   scope: {
-    version: "2026-10-29d",
+    version: "2026-10-29e",
     included: [
       {
         title: "Brand website",
@@ -59,20 +59,15 @@ export const ONBOARDING = {
         ],
       },
       {
-        title: "CRM",
+        title: "CRM setup on Pancake CRM",
         billing: "Starts free · ₱450 / month subscription",
         items: [
-          "We start you on the FREE version first; the subscription is ₱450 / month when you move to it",
-          "Inquiry tracking from first contact to purchase order",
-          "Quotation builder",
-          "Purchase orders submitted by your customers",
-          "Payment terms selectable per deal: full payment, downpayment, or cash on delivery",
-          "Payment proof upload, verified by your accounting team before an order can be completed",
-          "Order status visible to your customers, including Production and an estimated timeline",
-          "Job order printed or sent to a Production Manager portal when a PO moves to production",
-          "Admin dashboard showing collected sales for today, this month, or a custom date range",
-          "Roles and permissions for admin, customer and team members, with custom roles",
-          "Email notifications",
+          "We set up Pancake CRM for your company on the FREE version first; the subscription is ₱450 / month when you move to it",
+          "Leads from your website inquiry form, Facebook and Instagram collected in one place",
+          "Customer segments by status, source and priority, with hot, warm and cold lead scoring",
+          "Sales pipeline from first inquiry to closed deal, with interaction history and task reminders",
+          "Automated follow-ups: emails, messages or task notifications triggered by customer actions",
+          "Conversion data synced back to your Facebook and TikTok ads to lower your cost per lead",
         ],
       },
     ],
